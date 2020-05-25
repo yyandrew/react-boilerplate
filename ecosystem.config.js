@@ -9,14 +9,12 @@ module.exports = {
 
   deploy : {
     production : {
-      user : 'wyb',
-      host : 'ky2k.top',
-      ref  : 'origin/master',
-      repo : 'git@github.com:yyandrew/react-boilerplate.git',
-      path : '/var/www/react-boilerplate',
-      'pre-deploy-local': '',
-      'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production',
-      'pre-setup': ''
+      user: 'vagrant',
+      host: '192.168.1.242',
+      ref: 'origin/master',
+      repo: 'git@github.com:yyandrew/react-boilerplate.git',
+      path: '/var/www/react-boilerplate',
+      "post-deploy": 'npm install && npm run build && sudo service nginx restart'
     }
   }
 };
