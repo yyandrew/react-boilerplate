@@ -1,0 +1,14 @@
+---
+- name: Deploy react-boilerplate
+  hosts: all
+  vars:
+    ansistrano_deploy_from: "{{ playbook_dir }}"
+    ansistrano_deploy_to: "/var/www/react-boilerplate"
+    ansistrano_git_repo: git@github.com:yyandrew/react-boilerplate.git
+    ansistrano_git_branch: "master"
+    ansistrano_keep_releases: 0
+    ansistrano_deploy_via: "git"
+    ansistrano_after_symlink_tasks_file: 'build.yml'
+    ansistrano_git_identity_key_remote_path: ''
+  roles:
+    - { role: ansistrano.deploy }

@@ -1,0 +1,3 @@
+- shell: cd "{{ ansistrano_deploy_to }}/current" && npm install
+- shell: cd "{{ ansistrano_deploy_to }}/current" && npm run build
+- shell: sudo chgrp -R nginx "{{ ansistrano_deploy_to }}/current/"
