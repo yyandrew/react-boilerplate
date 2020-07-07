@@ -1,85 +1,44 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import uuid from 'uuid'
+import * as React from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom'
 
-import Notes from './Notes'
+import Home from './Home'
+import About from './About'
+import Help from './Help'
 
-const notes = [
-]
-
-export default class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      notes: [
-        {
-          id: uuid.v4(),
-          task: 'Learn React'
-        },
-        {
-          id: uuid.v4(),
-          task: 'Do laundry'
-        }
-      ]
-    }
-  }
-
-  addNote = () => {
-    this.setState({
-      notes: this.state.notes.concat([
-        {
-          id: uuid.v4(),
-          task: 'New Task'
-        }
-      ])
-    })
-  }
-
-  deleteNote = (id, e) => {
-    e.stopPropagation()
-    this.setState({
-      notes: this.state.notes.filter((note) => note.id !== id)
-    })
-  }
-
-  activeNoteEdit = (id) => {
-    this.setState({
-      notes: this.state.notes.map(note => {
-        if(note.id === id) {
-          note.editing = true
-        }
-
-        return note
-      })
-    })
-  }
-
-  editNote = (id, task) => {
-    this.setState({
-      notes: this.state.notes.map(note => {
-        if(note.id === id) {
-          note.editing = false
-          note.task = task
-        }
-
-        return note
-      })
-    })
-  }
-
-  render() {
-    const { notes } = this.state
-
-    return (
+const App = () => {
+  return (
+    <Router>
       <div>
-        <button className='add-note' onClick={this.addNote}>+</button>
-        <Notes
-          notes={notes}
-          onNoteClick={this.activeNoteEdit}
-          onEdit={this.editNote}
-          onDelete={this.deleteNote} />
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/help">Help</Link>
+          </li>
+        </ul>
+        <Switch>
+          <Route exact path='/'>
+            <Home />
+          </Route>
+          <Route path='/about'>
+            <About />
+          </Route>
+          <Route path='/help'>
+            <Help />
+          </Route>
+        </Switch>
       </div>
-    )
-  }
-
+    </Router>
+  )
 }
+
+export default App
