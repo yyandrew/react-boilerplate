@@ -1,7 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
-import { createStore } from 'redux'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import App from './components/App'
 
 let store = createStore(
   (state = 0, action) => {
@@ -23,11 +24,10 @@ store.dispatch({type: 'INCREASE'})
 store.dispatch({type: 'INCREASE'})
 store.dispatch({type: 'INCREASE'})
 
-if(process.env.NODE_ENV !== 'production') {
-  React.Perf = require('react-addons-perf');
-}
 
 ReactDOM.render(
-  <App />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('app')
-);
+)
