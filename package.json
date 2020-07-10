@@ -47,6 +47,7 @@
     "phantomjs-prebuilt": "^2.1.7",
     "react-addons-perf": "^15.1.0",
     "react-addons-test-utils": "^15.1.0",
+    "redux-devtools-extension": "^2.13.8",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1",
@@ -54,11 +55,13 @@
     "webpack-validator": "^2.1.1"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.10.4",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-redux": "^7.2.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "redux-saga": "^1.1.3"
   }
 }

@@ -1,33 +1,26 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { createStore, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'
-import App from './components/App'
+import '@babel/polyfill';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import createSagaMiddleware from 'redux-saga';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import App from './components/App';
+import Albums from './reducers/Albums';
+
+import mySaga from './saga';
+let sagaMiddleware = createSagaMiddleware();
 
 let store = createStore(
-  (state = 0, action) => {
-    switch(action.type) {
-      case 'INCREASE':
-        return state + 1
-      default:
-        return state
-    }
-  },
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-)
+  Albums,
+  composeWithDevTools(applyMiddleware(sagaMiddleware))
+);
 
-// 注册一个listener
-store.subscribe(() => console.log(store.getState()))
-
-// 派发action
-store.dispatch({type: 'INCREASE'})
-store.dispatch({type: 'INCREASE'})
-store.dispatch({type: 'INCREASE'})
-
+sagaMiddleware.run(mySaga);
 
 ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('app')
-)
+);
