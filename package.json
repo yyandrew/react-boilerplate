@@ -10,7 +10,13 @@
     "build": "webpack",
     "test": "karma start",
     "test:tdd": "npm run test -- --auto-watch --no-single-run",
-    "test:lint": "eslint ./app ./tests --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache"
+    "test:lint": "eslint ./app ./tests --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
+    "format": "yarn prettier -- --write app/**/*.jsx"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn format"
+    }
   },
   "keywords": [],
   "author": "",
@@ -33,6 +39,7 @@
     "gh-pages": "^0.11.0",
     "html-webpack-plugin": "^2.17.0",
     "html-webpack-template": "^5.0.0",
+    "husky": "^4.2.5",
     "isparta-instrumenter-loader": "^1.0.0",
     "karma": "^0.13.22",
     "karma-coverage": "^1.0.0",
@@ -45,6 +52,7 @@
     "npm-install-webpack-plugin": "4.0.0",
     "phantomjs-polyfill": "0.0.2",
     "phantomjs-prebuilt": "^2.1.7",
+    "prettier": "^2.0.5",
     "react-addons-perf": "^15.1.0",
     "react-addons-test-utils": "^15.1.0",
     "style-loader": "^0.13.1",
