@@ -1,27 +1,26 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import uuid from 'uuid'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import uuid from 'uuid';
 
-import Notes from './Notes'
+import Notes from './Notes';
 
-const notes = [
-]
+const notes = [];
 
 export default class Home extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       notes: [
         {
           id: uuid.v4(),
-          task: 'Learn React'
+          task: 'Learn React',
         },
         {
           id: uuid.v4(),
-          task: 'Do laundry'
-        }
-      ]
-    }
+          task: 'Do laundry',
+        },
+      ],
+    };
   }
 
   addNote = () => {
@@ -29,57 +28,59 @@ export default class Home extends React.Component {
       notes: this.state.notes.concat([
         {
           id: uuid.v4(),
-          task: 'New Task'
-        }
-      ])
-    })
-  }
+          task: 'New Task',
+        },
+      ]),
+    });
+  };
 
   deleteNote = (id, e) => {
-    e.stopPropagation()
+    e.stopPropagation();
     this.setState({
-      notes: this.state.notes.filter((note) => note.id !== id)
-    })
-  }
+      notes: this.state.notes.filter((note) => note.id !== id),
+    });
+  };
 
   activeNoteEdit = (id) => {
     this.setState({
-      notes: this.state.notes.map(note => {
-        if(note.id === id) {
-          note.editing = true
+      notes: this.state.notes.map((note) => {
+        if (note.id === id) {
+          note.editing = true;
         }
 
-        return note
-      })
-    })
-  }
+        return note;
+      }),
+    });
+  };
 
   editNote = (id, task) => {
     this.setState({
-      notes: this.state.notes.map(note => {
-        if(note.id === id) {
-          note.editing = false
-          note.task = task
+      notes: this.state.notes.map((note) => {
+        if (note.id === id) {
+          note.editing = false;
+          note.task = task;
         }
 
-        return note
-      })
-    })
-  }
+        return note;
+      }),
+    });
+  };
 
   render() {
-    const { notes } = this.state
+    const { notes } = this.state;
 
     return (
       <div>
-        <button className='add-note' onClick={this.addNote}>+</button>
+        <button className="add-note" onClick={this.addNote}>
+          +
+        </button>
         <Notes
           notes={notes}
           onNoteClick={this.activeNoteEdit}
           onEdit={this.editNote}
-          onDelete={this.deleteNote} />
+          onDelete={this.deleteNote}
+        />
       </div>
-    )
+    );
   }
-
 }
