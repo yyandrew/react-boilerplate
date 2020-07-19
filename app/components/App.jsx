@@ -1,14 +1,9 @@
-import * as React from 'react'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from 'react-router-dom'
+import * as React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-import Home from './Home'
-import About from './About'
-import Help from './Help'
+import Home from './Home';
+import About from './About';
+import Help from './Help';
 
 const App = () => {
   return (
@@ -26,19 +21,19 @@ const App = () => {
           </li>
         </ul>
         <Switch>
-          <Route exact path='/'>
+          <Route exact path="/">
             <Home />
           </Route>
-          <Route path='/about'>
+          <Route path="/about">
             <About />
           </Route>
-          <Route path='/help'>
+          <Route path="/help">
             <Help />
           </Route>
         </Switch>
       </div>
     </Router>
-  )
-}
+  );
+};
 
-export default App
+export default App;
