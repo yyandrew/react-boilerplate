@@ -1,10 +1,10 @@
-import React, { useReducer } from 'react'
 import reducer from './reducer'
+import useUndoReducer from './useUndoReducer'
 
 import './Puzzle.css'
 
 function Puzzle() {
-  const [state, dispatch] = useReducer(reducer, {
+  const [state, dispatch] = useUndoReducer(reducer, {
     items: ['4', '1', '2', '7', '6', '3', null, '5', '8'],
   })
   return (
@@ -32,6 +32,20 @@ function Puzzle() {
           onClick={() => dispatch({ type: 'reset' })}
         >
           Reset
+        </button>
+      </div>
+      <div className="Puzzle-controls">
+        <button
+          className="Puzzle-undo"
+          onClick={() => dispatch({ type: 'undo' })}
+        >
+          Undo
+        </button>
+        <button
+          className="Puzzle-redo"
+          onClick={() => dispatch({ type: 'redo' })}
+        >
+          Redo
         </button>
       </div>
       {state.complete && <div className="Puzzle-complete">Complete</div>}
