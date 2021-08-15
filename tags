@@ -1,0 +1,40 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+App	src/App.js	/^function App() {$/;"	r
+HelpBubble	src/HelpBubble.js	/^function HelpBubble(props) {$/;"	r
+HelpSequence	src/HelpSequence.js	/^function HelpSequence(props) {$/;"	r
+className	src/App.js	/^          className="App-link"$/;"	r
+className	src/HelpBubble.js	/^                className="HelpBubble-controls HelpBubble-next"$/;"	r
+className	src/HelpBubble.js	/^                className="HelpBubble-controls HelpBubble-previous"$/;"	r
+className	src/HelpBubble.js	/^      className="HelpBubble-container"$/;"	r
+content	src/HelpBubble.js	/^      content={$/;"	r
+content	src/HelpSequence.js	/^          content={data.text}$/;"	r
+forElement	src/App.js	/^      forElement: '.App-link',$/;"	r
+forElement	src/App.js	/^      forElement: '.App-nowhere',$/;"	r
+forElement	src/App.js	/^      forElement: 'p',$/;"	r
+forElement	src/HelpSequence.js	/^          forElement={data.forElement}$/;"	r
+getFID	src/reportWebVitals.js	/^    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {$/;"	r
+href	src/App.js	/^          href="https:\/\/reactjs.org"$/;"	r
+isVisible	src/HelpSequence.js	/^function isVisible(e) {$/;"	r
+nextLabel	src/HelpSequence.js	/^          nextLabel={position < sequence.length - 1 ? 'Next' : 'Finish'}$/;"	r
+onClick	src/HelpBubble.js	/^                onClick={props.onNext}$/;"	r
+onClick	src/HelpBubble.js	/^                onClick={props.onPrevious}$/;"	r
+onClose	src/App.js	/^        onClose={() => setShowHelp(false)}$/;"	r
+onClose	src/HelpSequence.js	/^          onClose={props.onClose}$/;"	r
+onNext	src/HelpSequence.js	/^          onNext={onNext}$/;"	r
+onPrevious	src/HelpSequence.js	/^          onPrevious={onPrevious}$/;"	r
+open	src/App.js	/^        open={showHelp}$/;"	r
+open	src/HelpSequence.js	/^          open={props.open}$/;"	r
+placement	src/HelpSequence.js	/^          placement={data.placement}$/;"	r
+previousLabel	src/HelpSequence.js	/^          previousLabel={position > 0 && 'Previous'}$/;"	r
+rel	src/App.js	/^          rel="noopener noreferrer"$/;"	r
+sequence	src/App.js	/^        sequence={sequence}$/;"	r
+target	src/App.js	/^          target="_blank"$/;"	r
+text	src/App.js	/^      text: 'This help text will never appear',$/;"	r
+text	src/App.js	/^      text: 'This is some introductory text telling you how to start',$/;"	r
+text	src/App.js	/^      text: 'This will show you how to use React',$/;"	r
+visible	src/HelpBubble.js	/^      visible={props.open}$/;"	r
