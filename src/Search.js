@@ -1,10 +1,13 @@
 import './App.css'
 import { useState } from 'react'
-import useSearch from './useSearch'
+import { useDispatch, useSelector } from 'react-redux'
 
 function Search() {
   const [terms, setTerms] = useState()
-  const { data: results } = useSearch(terms)
+  const { data: results, error, loading } = useSelector(
+    (state) => state.searchResults || {}
+  )
+  const dispatch = useDispatch()
 
   return (
     <div className="App">
@@ -12,9 +15,19 @@ function Search() {
         type="text"
         placehold="Search..."
         value={terms}
-        onChange={(e) => setTerms(e.target.value)}
+        onChange={(e) => {
+          setTerms(e.target.value)
+          dispatch({
+            type: 'SEARCH',
+            payload: e.target.value,
+          })
+        }}
       />
-      {results && results.length ? (
+      {error ? (
+        <p>Error: {error.message}</p>
+      ) : loading ? (
+        <p>Loading...</p>
+      ) : results && results.length ? (
         <table>
           <thead>
             <tr>
